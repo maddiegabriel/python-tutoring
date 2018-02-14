@@ -8,14 +8,14 @@ from random import randint
 def say(something):
     system('say "%s"' % something)
 
-say("Please enter your name:")
 print("Please enter your name:")
+say("Please enter your name:")
 name = raw_input()
 
 # ask user for number between 1 and max number (your choice)
 max_number = 10
-print("Let's play a guessing game! Try to guess the number I'm thinking of.")
-say("Let's play a guessing game! Try to guess the number I'm thinking of.")
+print("Hi %s! Let's play a guessing game!\nTry to guess the number I'm thinking of." % name)
+say("Hi %s! Let's play a guessing game!\nTry to guess the number I'm thinking of." % name)
 print("Pick a number between 1 and %d" % max_number)
 say("Pick a number between 1 and %d" % max_number)
 
@@ -31,11 +31,13 @@ while (solved == False):
     answer = input()
     #check if the user's input is lower/higher than the real number
     if answer > number:
-        say("The number is lower")
+        print("The number is lower - try again!")
+        say("The number is lower - try again!")
     elif answer < number:
-        say("The number is higher")
+        print("The number is higher - try again!")
+        say("The number is higher - try again!")
     #if they guessed correct, exit loop by setting solved = True!
     else:
-        say("You got it right! Congratulations %s!" % name)
         print("You got it right! Congratulations %s!" % name)
+        say("You got it right! Congratulations %s!" % name)
         solved = True
